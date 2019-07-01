@@ -17,6 +17,8 @@ script:
     buildctl build --frontend dockerfile.v0 \
       --frontend-opt platform=linux/armhf \
       --frontend-opt filename=./Dockerfile \
+      --export-cache type=registry,ref=docker.io/mlenkeit/node-compose:buildcache-armhf \
+      --import-cache type=registry,ref=docker.io/mlenkeit/node-compose:buildcache-armhf \
       --output type=image,name="docker.io/mlenkeit/node-compose:armhf",push=true \
       --local dockerfile=. \
       --local context=. \
