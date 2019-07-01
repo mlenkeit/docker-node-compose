@@ -12,6 +12,7 @@ before_install:
   - export BUILDKIT_HOST=tcp://0.0.0.0:1234 > /dev/null
 
 script:
+  - buildctl build --help
   - |
     buildctl build --frontend dockerfile.v0 \
       --frontend-opt platform=linux/armhf \
