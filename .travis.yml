@@ -12,12 +12,12 @@ before_install:
   - export BUILDKIT_HOST=tcp://0.0.0.0:1234 > /dev/null
 
 script:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - |
     buildctl build --frontend dockerfile.v0 \
       --frontend-opt platform=linux/armhf \
       --frontend-opt filename=./Dockerfile \
-      --output type=image,name="docker.io/mlenkeit/node-compose:armhf" \
+      --output type=image,name="docker.io/mlenkeit/node-compose:armhf",push=true \
       --local dockerfile=. \
       --local context=. \
       --progress plain
-  - docker images
