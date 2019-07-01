@@ -21,4 +21,5 @@ script:
       --exporter-opt name=docker.io/mlenkeit/node-compose:armhf \
       --exporter-opt push=true \
       --local dockerfile=. \
-      --local context=.
+      --local context=. \
+      --output type=docker,name="docker.io/mlenkeit/node-compose:armhf"
