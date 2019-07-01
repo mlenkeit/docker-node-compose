@@ -17,7 +17,7 @@ script:
     buildctl build --frontend dockerfile.v0 \
       --frontend-opt platform=linux/armhf \
       --frontend-opt filename=./Dockerfile \
-      --output type=image,"docker.io/mlenkeit/node-compose:armhf",push=true \
+      --output type=image,name="docker.io/mlenkeit/node-compose:armhf",push=true \
       --local dockerfile=. \
       --local context=. \
       --progress plain
