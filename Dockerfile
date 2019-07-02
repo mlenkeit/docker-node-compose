@@ -29,3 +29,8 @@ RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN python get-pip.py
 RUN rm -f get-pip.py
 RUN sudo pip install docker-compose
+
+# Prepare node user
+RUN mkdir /opt/workspace && chown node:node /opt/workspace
+WORKDIR /opt/workspace
+USER node
